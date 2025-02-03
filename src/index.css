@@ -1,8 +1,10 @@
 @import "tailwindcss";
-
-
 .home { 
   background-image: url("./assets/images/light-patten.svg");
+}
+
+.active {
+  color: #0aad0a;
 }
 
 .slick-dots li.slick-active div {

@@ -109,11 +109,11 @@ const Payment = () => {
                     )}
                     {/* Radio */}
                     <div className="flex items-center my-2">
-                        <input disabled={!formik.isValid || !formik.dirty || formik.isSubmitting} value={"cash"} onChange={() => setPaymentType('cash')} checked={paymentType === 'cash'} id="Cash" type="radio" name="colored-radio" className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 disabled:opacity-65 disabled:cursor-not-allowed" />
+                        <input disabled={!formik.isValid || !formik.dirty || formik.isSubmitting} value={"cash"} onChange={() => setPaymentType('cash')} checked={paymentType === 'cash'} id="Cash" type="radio" name="colored-radio" className="w-4 h-4 text-[#0aad0a] bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-[#0aad0a] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 disabled:opacity-65 disabled:cursor-not-allowed" />
                         <label htmlFor="Cash" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cash</label>
                     </div>
                     <div className="flex items-center my-2">
-                        <input disabled={!formik.isValid || !formik.dirty || formik.isSubmitting} value={"online"} onChange={() => setPaymentType('online')} checked={paymentType === 'online'} id="Online" type="radio" name="colored-radio" className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 disabled:opacity-65 disabled:cursor-not-allowed" />
+                        <input disabled={!formik.isValid || !formik.dirty || formik.isSubmitting} value={"online"} onChange={() => setPaymentType('online')} checked={paymentType === 'online'} id="Online" type="radio" name="colored-radio" className="w-4 h-4 text-[#0aad0a] bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-[#0aad0a] dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 disabled:opacity-65 disabled:cursor-not-allowed" />
                         <label htmlFor="Online" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Online</label>
                     </div>
                     {/* Buttons */}
