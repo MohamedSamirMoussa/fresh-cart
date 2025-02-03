@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+.home { 
+  background-image: url("./assets/images/light-patten.svg");
+}
+
+.slick-dots li.slick-active div {
+  background-color: black;
+}
