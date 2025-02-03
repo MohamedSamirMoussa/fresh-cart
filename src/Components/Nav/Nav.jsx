@@ -67,20 +67,20 @@ const Nav = () => {
                         <ul className=" md:w-3/6 font-medium flex flex-col justify-items p-4 items-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                             {token ? <><li>
                                 <NavLink
-                                    to={"/"} className="block py-2 px-3 text-gray-900 rounded-sm md:bg-transparent md:hover:text-[#0aad0a] md:p-0"
+                                    to={"/"} className="block py-2 px-3 text-gray-600 rounded-sm md:bg-transparent md:hover:text-[#0aad0a] md:p-0"
                                     aria-current="page"
                                 >
                                     Home
                                 </NavLink>
                             </li>
                                 <li>
-                                    <NavLink to={"/cart"} className="relative block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#0aad0a] md:p-0">
+                                    <NavLink to={"/cart"} className="relative block py-2 px-3 text-gray-600 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#0aad0a] md:p-0">
                                         Cart
                                         <div className="absolute inline-flex items-center justify-center w-[20px] h-[20px] text-[10px] font-bold text-white bg-red-500 border-2  rounded-full -top-2 -end-4">{numOfItem}</div>
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/allorders"} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#0aad0a] md:p-0">
+                                    <NavLink to={"/allorders"} className="block py-2 px-3 text-gray-600 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#0aad0a] md:p-0">
                                         Orders
                                     </NavLink>
                                 </li></> : ""}
