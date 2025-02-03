@@ -29,7 +29,7 @@ const Nav = () => {
     return (
         <div>
             <nav className={nav ? "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 py-2 transition-all z-40" : "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 transition-all z-40"}>
-                <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-4">
+                <div className="max-w-screen-xl flex flex-wrap justify-between items-center mx-auto p-4 lg:w-[90%]">
                     <Link
                         to={"/"}
                         className="flex items-center space-x-3 rtl:space-x-reverse md:w-1/6"
@@ -61,10 +61,10 @@ const Nav = () => {
                         </svg>
                     </button>
                     <div
-                        className="hidden w-full md:w-4/5 md:flex md:justify-between md:items-center md:mx-3"
+                        className="hidden w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1"
                         id="navbar-default"
                     >
-                        <ul className=" md:w-2/5 font-medium flex flex-col p-4 items-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                        <ul className=" md:w-3/6 font-medium flex flex-col justify-items p-4 items-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                             {token ? <><li>
                                 <NavLink
                                     to={"/"} className="block py-2 px-3 text-gray-900 rounded-sm md:bg-transparent md:hover:text-[#0aad0a] md:p-0"
@@ -86,7 +86,7 @@ const Nav = () => {
                                 </li></> : ""}
                         </ul>
 
-                            <ul className="md:w-2/5 flex items-center space-x-4">
+                            <ul className="md:w-3/6 flex justify-center flex-col items-center md:flex-row md:space-x-3">
                                 <li>
                                     <i className="fa-brands fa-instagram"></i>
                                 </li>
