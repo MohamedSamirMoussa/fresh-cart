@@ -3,7 +3,7 @@ import { Bars } from "react-loader-spinner";
 import { useQuery } from "react-query";
 import HomeSlider from "../HomeSlider/HomeSlider";
 import CategorySlider from "../CategorySlider/CategorySlider";
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useContext, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import toast from "react-hot-toast";
@@ -26,7 +26,7 @@ const Home = () => {
         const data = await addProductToCart(id)
         console.log(data);
 
-        if(data.status == 'success') {
+        if (data.status == 'success') {
             toast.success(data.message)
             setLoading(false)
         } else {
@@ -57,7 +57,7 @@ const Home = () => {
                 <div className="container md:w-[80%] mx-auto py-10">
 
                     <div className="p-3">
-                    <HomeSlider />
+                        <HomeSlider />
                     </div>
 
                     <div>
@@ -84,11 +84,11 @@ const Home = () => {
                                     </div>
                                 </Link>
                                 <div className="text-center">
-                                {loading ?
-                                <button onClick={() => getData(item.id)} className="w-full font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer disabled:opacity-65" disabled><i className='fa-solid fa-spin fa-spinner fa-lg'></i> </button>
-                                :
-                                <button onClick={() => getData(item.id)} className="w-full font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer"><i className='fa-solid fa-plus'></i> Add to cart</button>
-                            }                                </div>
+                                    {loading ?
+                                        <button onClick={() => getData(item.id)} className="w-full font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer disabled:opacity-65" disabled><i className='fa-solid fa-spin fa-spinner fa-lg'></i> </button>
+                                        :
+                                        <button onClick={() => getData(item.id)} className="w-full font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer"><i className='fa-solid fa-plus'></i> Add to cart</button>
+                                    }                                </div>
                             </div>
                         })}
 

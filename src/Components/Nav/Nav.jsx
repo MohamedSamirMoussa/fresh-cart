@@ -37,11 +37,11 @@ const Nav = () => {
 
     return (
         <>
-            <nav className={nav ? "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 py-2 transition-all z-40" : "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 transition-all z-40"}>
-                <div className="max-w-screen-xl flex flex-wrap justify-between items-center mx-auto p-4 lg:w-[90%]">
+            <nav className={nav ? "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 py-2 transition-all duration-500 z-40" : "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 transition-all duration-500 z-40"}>
+                <div className={nav? " flex flex-wrap justify-between md:justify-center items-center mx-auto p-4 lg:w-[80%] transition-all duration-500" : "transition-all duration-500 flex flex-wrap justify-between items-center mx-auto p-4 lg:w-[90%]"}>
                     <Link
                         to={"/"}
-                        className="flex items-center space-x-3 rtl:space-x-reverse md:w-1/6"
+                        className="flex items-center space-x-3 rtl:space-x-reverse md:w-1/8"
                     >
                         <img src={logo} className="block w-full" alt="fresh-cart logo" />
                     </Link>
