@@ -18,8 +18,8 @@ const Nav = () => {
     }
 
     function touchBtn() {
-        
-        if(touched === false) {
+
+        if (touched === false) {
             setTouched(true)
         } else {
             setTouched(false)
@@ -38,7 +38,7 @@ const Nav = () => {
     return (
         <>
             <nav className={nav ? "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 py-2 transition-all duration-500 z-40" : "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 transition-all duration-500 z-40"}>
-                <div className={nav? " flex flex-wrap justify-between md:justify-center items-center mx-auto p-4 lg:w-[80%] transition-all duration-500" : "transition-all duration-500 flex flex-wrap justify-between items-center mx-auto p-4 lg:w-[90%]"}>
+                <div className={nav ? " flex flex-wrap justify-between md:justify-center items-center mx-auto p-4 lg:w-[80%] transition-all duration-500" : "transition-all duration-500 flex flex-wrap justify-between items-center mx-auto p-4 lg:w-[90%]"}>
                     <Link
                         to={"/"}
                         className="flex items-center space-x-3 rtl:space-x-reverse md:w-1/8"
@@ -71,7 +71,7 @@ const Nav = () => {
                         </svg>
                     </button>
                     <div
-                        className={touched ? "w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1" : "hidden w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1"}
+                        className={touched ? "w-full md:w-7/8 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1" : "hidden w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1"}
                         id="navbar-default"
                     >
                         <ul className=" md:w-3/6 font-medium flex flex-col justify-items p-4 items-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
@@ -96,32 +96,36 @@ const Nav = () => {
                                 </li></> : ""}
                         </ul>
 
-                        <ul className="md:w-3/6 flex justify-center flex-col items-center md:flex-row md:space-x-3">
-                            <li>
-                                <i className="fa-brands fa-instagram"></i>
-                            </li>
-                            <li>
-                                <i className="fa-brands fa-facebook"></i>
-                            </li>
-                            <li>
-                                <i className="fa-brands fa-tiktok"></i>
-                            </li>
-                            <li>
-                                <i className="fa-brands fa-twitter"></i>
-                            </li>
-                            <li>
-                                <i className="fa-brands fa-linkedin"></i>
-                            </li>
-                            <li>
-                                <i className="fa-brands fa-youtube"></i>
-                            </li>
-                            {!token ? <><li>
+                        <div className="flex flex-wrap justify-center items-center flex-col md:flex-row md:justify-between md:space-x-3">
+                            <div className="md:w-3/6 flex justify-center flex-row items-center md:flex-row space-x-3">
+
+                                <i className="fa-brands fa-instagram md:hover:text-[#0aad0a] transition-all duration-300"></i>
+
+
+                                <i className="fa-brands fa-facebook md:hover:text-[#0aad0a] transition-all duration-300"></i>
+
+
+                                <i className="fa-brands fa-tiktok md:hover:text-[#0aad0a] transition-all duration-300"></i>
+
+
+                                <i className="fa-brands fa-twitter md:hover:text-[#0aad0a] transition-all duration-300"></i>
+
+
+                                <i className="fa-brands fa-linkedin md:hover:text-[#0aad0a] transition-all duration-300"></i>
+
+
+                                <i className="fa-brands fa-youtube md:hover:text-[#0aad0a] transition-all duration-300"></i>
+
+                            </div>
+                            {!token ? <>
                                 <NavLink to={"/register"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Register</NavLink>
-                            </li>
-                                <li>
-                                    <NavLink to={"/login"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Login</NavLink>
-                                </li></> : <button className="text-gray-600 cursor-pointer md:hover:text-[#000] transition-all duration-500 " onClick={logout}>Log out</button>}
-                        </ul>
+                                <NavLink to={"/login"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Login</NavLink>
+                            </>
+                                :
+                                <button className="text-gray-600 cursor-pointer md:hover:text-[#000] transition-all duration-500 " onClick={logout}>
+                                    Log out
+                                </button>}
+                        </div>
 
                     </div>
                 </div>
