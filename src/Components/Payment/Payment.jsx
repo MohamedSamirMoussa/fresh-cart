@@ -60,7 +60,7 @@ const Payment = () => {
                         },
                         params: {
                             // My URL
-                            url: "http://localhost:5173"
+                            url: "https://mohamedsamirmoussa.github.io"
                         }
                     }
                 )
