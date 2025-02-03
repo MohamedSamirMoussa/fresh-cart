@@ -7,7 +7,7 @@ import './Nav.css'
 const Nav = () => {
 
     const { numOfItem } = useContext(CartContext)
-
+    const [touched, setTouched] = useState(false)
     const [nav, setNav] = useState(false)
     const { token, setToken } = useContext(AuthContext)
     const navigate = useNavigate()
@@ -15,6 +15,10 @@ const Nav = () => {
         localStorage.removeItem("tkn")
         setToken(null)
         navigate("/login")
+    }
+
+    function touchBtn() {
+        setTouched(true)
     }
 
     const handleNav = () => {
@@ -42,6 +46,7 @@ const Nav = () => {
                         className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#0aad0a] focus:ring-offset-2 focus:ring-offset-gray-50"
                         aria-controls="navbar-default"
                         aria-expanded="false"
+                        onTouchStart={touchBtn}
                     >
                         <span className="sr-only">Open main menu</span>
                         <svg
@@ -61,7 +66,7 @@ const Nav = () => {
                         </svg>
                     </button>
                     <div
-                        className="hidden w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1"
+                        className={touched == false ? "hidden w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1" : "w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1"}
                         id="navbar-default"
                     >
                         <ul className=" md:w-3/6 font-medium flex flex-col justify-items p-4 items-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
