@@ -1,6 +1,5 @@
 @import "tailwindcss";
-@plugin "flowbite/plugin";
-@source "../node_modules/flowbite";
+
 
 .home { 
   background-image: url("./assets/images/light-patten.svg");
