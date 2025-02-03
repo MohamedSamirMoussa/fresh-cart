@@ -27,7 +27,7 @@ const Nav = () => {
     window.addEventListener("scroll", handleNav)
 
     return (
-        <div>
+        <>
             <nav className={nav ? "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 py-2 transition-all z-40" : "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 transition-all z-40"}>
                 <div className="max-w-screen-xl flex flex-wrap justify-between items-center mx-auto p-4 lg:w-[90%]">
                     <Link
@@ -116,7 +116,7 @@ const Nav = () => {
                     </div>
                 </div>
             </nav>
-        </div>
+        </>
     );
 };
 
