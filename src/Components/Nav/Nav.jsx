@@ -18,7 +18,12 @@ const Nav = () => {
     }
 
     function touchBtn() {
-        setTouched(true)
+        
+        if(touched === false) {
+            setTouched(true)
+        } else {
+            setTouched(false)
+        }
     }
 
     const handleNav = () => {
@@ -46,7 +51,7 @@ const Nav = () => {
                         className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#0aad0a] focus:ring-offset-2 focus:ring-offset-gray-50"
                         aria-controls="navbar-default"
                         aria-expanded="false"
-                        onTouchStart={touchBtn}
+                        onClick={touchBtn}
                     >
                         <span className="sr-only">Open main menu</span>
                         <svg
@@ -66,7 +71,7 @@ const Nav = () => {
                         </svg>
                     </button>
                     <div
-                        className={touched == false ? "hidden w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1" : "w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1"}
+                        className={touched ? "w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1" : "hidden w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1"}
                         id="navbar-default"
                     >
                         <ul className=" md:w-3/6 font-medium flex flex-col justify-items p-4 items-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
@@ -91,32 +96,32 @@ const Nav = () => {
                                 </li></> : ""}
                         </ul>
 
-                            <ul className="md:w-3/6 flex justify-center flex-col items-center md:flex-row md:space-x-3">
+                        <ul className="md:w-3/6 flex justify-center flex-col items-center md:flex-row md:space-x-3">
+                            <li>
+                                <i className="fa-brands fa-instagram"></i>
+                            </li>
+                            <li>
+                                <i className="fa-brands fa-facebook"></i>
+                            </li>
+                            <li>
+                                <i className="fa-brands fa-tiktok"></i>
+                            </li>
+                            <li>
+                                <i className="fa-brands fa-twitter"></i>
+                            </li>
+                            <li>
+                                <i className="fa-brands fa-linkedin"></i>
+                            </li>
+                            <li>
+                                <i className="fa-brands fa-youtube"></i>
+                            </li>
+                            {!token ? <><li>
+                                <NavLink to={"/register"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Register</NavLink>
+                            </li>
                                 <li>
-                                    <i className="fa-brands fa-instagram"></i>
-                                </li>
-                                <li>
-                                    <i className="fa-brands fa-facebook"></i>
-                                </li>
-                                <li>
-                                    <i className="fa-brands fa-tiktok"></i>
-                                </li>
-                                <li>
-                                    <i className="fa-brands fa-twitter"></i>
-                                </li>
-                                <li>
-                                    <i className="fa-brands fa-linkedin"></i>
-                                </li>
-                                <li>
-                                    <i className="fa-brands fa-youtube"></i>
-                                </li>
-                                {!token ? <><li>
-                                    <NavLink to={"/register"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Register</NavLink>
-                                </li>
-                                    <li>
-                                        <NavLink to={"/login"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Login</NavLink>
-                                    </li></> : <button className="text-gray-600 cursor-pointer md:hover:text-[#000] transition-all duration-500 " onClick={logout}>Log out</button>}
-                            </ul>
+                                    <NavLink to={"/login"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Login</NavLink>
+                                </li></> : <button className="text-gray-600 cursor-pointer md:hover:text-[#000] transition-all duration-500 " onClick={logout}>Log out</button>}
+                        </ul>
 
                     </div>
                 </div>
