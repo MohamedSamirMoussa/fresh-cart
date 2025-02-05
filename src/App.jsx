@@ -17,8 +17,6 @@ import ForgetPassword from "./Components/ForgetPassword/ForgetPassword.jsx";
 import ResetPassword from "./Components/ResetPassword/ResetPassword.jsx";
 import NewPassword from "./Components/newPassword/NewPassword.jsx";
 import ProtectedAuthRoute from "./Components/ProtectedAuthRoute/ProtectedAuthRoute.jsx";
-import WishContextProvider from "./Context/WishContext.jsx";
-import WishList from "./Components/WishList/WishList.jsx";
 
 const App = () => {
 
@@ -28,7 +26,6 @@ const App = () => {
       path: "", element: <Layout />, children: [
         { index: true, element: <ProtectedRoute><Home /></ProtectedRoute> },
         { path: "/cart", element: <ProtectedRoute><Cart /> </ProtectedRoute> },
-        { path: "/wishList", element: <ProtectedRoute><WishList /> </ProtectedRoute> },
         { path: "/payment", element: <ProtectedRoute><Payment /></ProtectedRoute> },
         { path: "/allorders", element: <ProtectedRoute><AllOrders /></ProtectedRoute> },
         { path: "/login", element: <ProtectedAuthRoute><Login /></ProtectedAuthRoute> },
@@ -45,12 +42,10 @@ const App = () => {
 
     <QueryClientProvider client={client}>
       <AuthContextProvider>
-        <WishContextProvider>
           <CartContextProvider>
             <Toaster position="top-right" reverseOrder={false} />
             <RouterProvider router={router} />
           </CartContextProvider>
-        </WishContextProvider>
       </AuthContextProvider>
     </QueryClientProvider>
   );
