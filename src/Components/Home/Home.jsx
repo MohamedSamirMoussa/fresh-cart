@@ -7,11 +7,13 @@ import { Link } from 'react-router-dom';
 import { useContext, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import toast from "react-hot-toast";
+import { WishContext } from "../../Context/WishContext";
 
 
 const Home = () => {
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(null)
+    const [loadingWish, setLoadingWish] = useState(null)
 
     async function getAllProducts() {
         return await axios.get("https://ecommerce.routemisr.com/api/v1/products")
@@ -22,20 +24,44 @@ const Home = () => {
     const { addProductToCart } = useContext(CartContext)
 
     async function getData(id) {
-        setLoading(true)
-        const data = await addProductToCart(id)
-        console.log(data);
-
-        if (data.status == 'success') {
-            toast.success(data.message)
-            setLoading(false)
-        } else {
+        try {
+            setLoading(id)
+            const data = await addProductToCart(id)
+            if (data.status == 'success') {
+                toast.success(data.message)
+                setLoading(null)
+            }
+        } catch (error) {
             toast.error('Something went wrong')
-            setLoading(false)
+            return error
+        } finally {
+            setLoading(null)
         }
-
     }
 
+    const { addToWishListContext, removeFromWishListContext, wishlist } = useContext(WishContext)
+
+    const handleWishList = async (id) => {
+
+        try {
+            if (wishlist.some((item) => { return item.id == id })) {
+                setLoadingWish(id)
+                const y = await removeFromWishListContext(id)
+                console.log(y, "remove");
+                toast.success(y.message)
+            } else {
+                setLoadingWish(true)
+                const x = await addToWishListContext(id)
+                toast.success(x.message)
+            }
+
+        } catch (error) {
+            toast.error("Something went wrong")
+            return error
+        } finally {
+            setLoadingWish(null)
+        }
+    }
 
     if (isLoading) {
         return <div className="h-screen flex justify-center items-center fixed top-0 start-0 end-0 bottom-0 bg-[#f0f3f2] z-50">
@@ -83,12 +109,26 @@ const Home = () => {
                                         <span><i className="fa-solid fa-star text-yellow-400"></i>{item.ratingsAverage} </span>
                                     </div>
                                 </Link>
-                                <div className="text-center">
-                                    {loading ?
-                                        <button onClick={() => getData(item.id)} className="w-full font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer disabled:opacity-65" disabled><i className='fa-solid fa-spin fa-spinner fa-lg'></i> </button>
-                                        :
-                                        <button onClick={() => getData(item.id)} className="w-full font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer"><i className='fa-solid fa-plus'></i> Add to cart</button>
-                                    }                                </div>
+                                <div className="flex flex-wrap justify-between items-center">
+
+                                    <button onClick={() => getData(item.id)} className="p-3 font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer disabled:opacity-65" disabled={loading == item.id}>{loading == item.id ? <i className='fa-solid fa-spin fa-spinner fa-lg'></i> : "Add to cart"} </button>
+
+
+                                    <button
+                                        onClick={() => handleWishList(item.id)}
+                                        disabled={loadingWish === item.id}
+                                        className="cursor-pointer"
+                                        aria-label={wishlist.some((data) => data.id === item.id) ? "Remove from wishlist" : "Add to wishlist"}
+                                    >
+                                        {loadingWish === item.id ? (
+                                            <i className="fa-solid fa-spinner fa-spin fa-lg"></i>
+                                        ) : wishlist.some((data) => data.id === item.id) ? (
+                                            <i className="text-red-700 fa-solid fa-heart fa-lg"></i>
+                                        ) : (
+                                            <i className="hover:text-red-700 fa-regular fa-heart fa-lg"></i>
+                                        )}
+                                    </button>
+                                </div>
                             </div>
                         })}
 
