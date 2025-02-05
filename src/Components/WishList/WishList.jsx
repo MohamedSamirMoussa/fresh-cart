@@ -33,8 +33,8 @@ const WishList = () => {
         <h1 className="text-4xl font-bold my-3">Shop list :</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {wishlist.length > 0 ? (
-            wishlist.map((item) => (
+          {wishlist?.length > 0 ? (
+            wishlist?.map((item) => (
               <div key={item.id} className="bg-white shadow-lg rounded-2xl">
                 <div className="inner w-full p-4">
                   <figure>
