@@ -42,7 +42,7 @@ const WishList = () => {
                   </figure>
                   <div>
                     <h3 className="text-2xl">{item.title.split(" ").splice(0, 2).join(" ")}</h3>
-                    <p>{item?.description.split(" ").splice(0, 5).join(" ")}</p>
+                    <p>{item?.description?.split(" ").splice(0, 5).join(" ")}</p>
                     <div className="flex flex-wrap justify-between items-center">
                       <span className="text-[#0aad0a]"> {item.price} EGP</span>
                       <span>
