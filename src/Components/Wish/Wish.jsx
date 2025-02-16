@@ -51,9 +51,9 @@ const Wish = () => {
                             {wishList.map((items, index) => (
                                 <div key={index} className="card bg-white p-4 shadow-md rounded-lg">
                                     <figure>
-                                        <img src={items.imageCover} alt={items.title} className="w-full rounded-t-lg" />
+                                        <img src={items.imageCover} alt={items.title.split(' ').splice(0 , 2).join(' ')} className="w-full rounded-t-lg" />
                                         <figcaption className="text-gray-500 mt-2">
-                                            {items.description}
+                                            {items.description.split(' ').splice(0 , 15).join(' ')}
                                         </figcaption>
                                     </figure>
                                     <div className="txt mt-3">
