@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { useContext, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import toast from "react-hot-toast";
+import { WishListContext } from "../../Context/WishListContext";
 
 const Home = () => {
 
@@ -27,6 +28,8 @@ const Home = () => {
             if (data.status == 'success') {
                 toast.success(data.message)
                 setLoading(null)
+                console.log(data);
+
             }
         } catch (error) {
             toast.error('Something went wrong')
@@ -35,6 +38,31 @@ const Home = () => {
             setLoading(null)
         }
     }
+
+
+    const { addToWishListContext, removeFromWishListContext, wishList } = useContext(WishListContext)
+
+    const handleWishList = async (id) => {
+        const inWishList = wishList.includes(id)
+        try {
+            if (!inWishList) {
+                const data = await addToWishListContext(id)
+                console.log(data);
+                toast.success(data.message)
+            } else {
+                const data = await removeFromWishListContext(id)
+                toast.success(data.message)
+                console.log(data);
+
+            }
+
+        } catch (error) {
+            console.log(error);
+
+        }
+    }
+
+
     if (isLoading) {
         return <div className="h-screen flex justify-center items-center fixed top-0 start-0 end-0 bottom-0 bg-[#f0f3f2] z-50">
             <Bars
@@ -82,8 +110,8 @@ const Home = () => {
                                     </div>
                                 </Link>
                                 <div className="flex flex-wrap justify-between items-center">
-
-                                    <button onClick={() => getData(item.id)} className="w-full font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer disabled:opacity-65" disabled={loading == item.id}>{loading == item.id ? <i className='fa-solid fa-spin fa-spinner fa-lg'></i> : "Add to cart"} </button>
+                                    <button onClick={() => getData(item.id)} className="w-2/3 font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer disabled:opacity-65" disabled={loading == item.id}>{loading == item.id ? <i className='fa-solid fa-spin fa-spinner fa-lg'></i> : "Add to cart"} </button>
+                                    <i onClick={() => handleWishList(item.id)} className={`fa-heart fa-${wishList.includes(item.id) ? 'solid' : 'regular'} fa-lg text-red-700 w-1/3 text-center`}></i>
                                 </div>
                             </div>
                         })}

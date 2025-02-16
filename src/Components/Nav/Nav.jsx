@@ -4,12 +4,14 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { CartContext } from "../../Context/CartContext";
 import './Nav.css'
+import { WishListContext } from "../../Context/WishListContext";
 const Nav = () => {
 
     const { numOfItem } = useContext(CartContext)
     const [touched, setTouched] = useState(false)
     const [nav, setNav] = useState(false)
     const { token, setToken } = useContext(AuthContext)
+    const { wishListNum } = useContext(WishListContext)
     const navigate = useNavigate()
     const logout = () => {
         localStorage.removeItem("tkn")
@@ -116,6 +118,10 @@ const Nav = () => {
                                         <i className="fa-solid fa-cart-shopping fa-lg"></i>
                                         <div className="absolute inline-flex items-center justify-center w-[20px] h-[20px] text-[10px] font-bold text-white bg-red-500 border-2  rounded-full -top-2 -end-4">{numOfItem}</div>
                                     </NavLink>
+                                        <NavLink to={"/wish"} className="relative block py-2 px-3 mx-4 text-gray-600 rounded-sm hover:bg-gray-100 md:border-0 md:hover:text-[#000] transition-all duration-500 md:p-0">
+                                            <i className="fa-solid fa-heart text-red-700 fa-lg"></i>
+                                            <div className="absolute inline-flex items-center justify-center w-[20px] h-[20px] text-[10px] font-bold text-white bg-red-500 border-2  rounded-full -top-2 -end-4">{wishListNum}</div>
+                                        </NavLink>
                                     </> : ""
                                 }
 
