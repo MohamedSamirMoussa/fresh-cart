@@ -10,6 +10,13 @@ const WishListContextProvider = ({ children }) => {
     const [wishListNum, setWishListNum] = useState(0)
     const { token } = useContext(AuthContext)
 
+
+    const updateLocalStorage = (data) => {
+        localStorage.setItem("wishlist", JSON.stringify(data));
+        setWishList(data);
+        setWishListNum(data.length);
+    };
+
     // Add
     const addToWishListContext = async (id) => {
         try {
@@ -22,9 +29,8 @@ const WishListContextProvider = ({ children }) => {
                 }
             }
             )
-            setWishList(data.data)
-            setWishListNum(data.data.length)
-            console.log(data);
+            getAllDataContext()
+            updateLocalStorage(data.data)
             return data
         } catch (error) {
             console.log(error, 'From addToWishListContext');
@@ -36,9 +42,9 @@ const WishListContextProvider = ({ children }) => {
     const removeFromWishListContext = async (id) => {
         try {
             const { data } = await axios.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${id}`, { headers: { token } })
-            setWishList(data.data)
-            setWishListNum(data.data.length)
-            console.log(data);
+            getAllDataContext()
+            updateLocalStorage(data.data)
+
             return data
         } catch (error) {
             console.log(error, 'from remove wishist context');
@@ -50,9 +56,7 @@ const WishListContextProvider = ({ children }) => {
     const getAllDataContext = async () => {
         try {
             const { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/wishlist`, { headers: { token } })
-            setWishList(data.data)
-            setWishListNum(data.data.length)
-            console.log(data);
+            updateLocalStorage(data.data)
             return data
         } catch (error) {
             console.log(error);
@@ -61,13 +65,21 @@ const WishListContextProvider = ({ children }) => {
     }
 
     useEffect(() => {
+        const storage = localStorage.getItem('wishlist')
         if (token) {
-            getAllDataContext()
+            if (storage) {
+                const dataFromLocal = JSON.parse(storage)
+                setWishList(dataFromLocal)
+                setWishListNum(dataFromLocal.length)
+
+            } else {
+                getAllDataContext()
+            }
         }
     }, [token])
 
     return (
-        <WishListContext.Provider value={{ wishList, addToWishListContext, wishListNum, removeFromWishListContext }} >
+        <WishListContext.Provider value={{ wishList, addToWishListContext, wishListNum, removeFromWishListContext, getAllDataContext , setWishList }} >
             {children}
         </WishListContext.Provider>
     );
