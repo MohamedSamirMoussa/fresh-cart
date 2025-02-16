@@ -12,6 +12,7 @@ import { WishListContext } from "../../Context/WishListContext";
 const Home = () => {
 
     const [loading, setLoading] = useState(null)
+    const [loaderWishList, setLoaderWishList] = useState(null)
 
     async function getAllProducts() {
         return await axios.get("https://ecommerce.routemisr.com/api/v1/products")
@@ -44,10 +45,13 @@ const Home = () => {
     const handleWishList = async (id) => {
         const inWishList = wishList.some((item) => item.id === id);
         try {
+            setLoaderWishList(id)
             const data = inWishList ? await removeFromWishListContext(id) : await addToWishListContext(id);
             toast.success(data.message);
         } catch (error) {
             console.error(error);
+        } finally {
+            setLoaderWishList(null)
         }
     };
 
@@ -100,7 +104,7 @@ const Home = () => {
                                 </Link>
                                 <div className="flex flex-wrap justify-between items-center">
                                     <button onClick={() => getData(item.id)} className="w-2/3 font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer disabled:opacity-65" disabled={loading == item.id}>{loading == item.id ? <i className='fa-solid fa-spin fa-spinner fa-lg'></i> : "Add to cart"} </button>
-                                    <i onClick={() => handleWishList(item.id)} className={`fa-heart fa-${wishList.some(wishItem => wishItem.id === item.id) ? 'solid' : 'regular'} fa-lg text-red-700 w-1/3 text-center`}></i>
+                                    {loaderWishList == item.id ? <i className="fa-spin fa-spinner fa-solid text-center w-1/3 fa-lg text-red-700"></i> : <i onClick={() => handleWishList(item.id)} className={`fa-heart fa-${wishList.some(wishItem => wishItem.id === item.id) ? 'solid' : 'regular'} fa-lg text-red-700 w-1/3 text-center`}></i>}
                                 </div>
                             </div>
                         })}
