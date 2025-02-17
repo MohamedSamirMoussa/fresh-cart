@@ -19,6 +19,7 @@ import NewPassword from "./Components/newPassword/NewPassword.jsx";
 import ProtectedAuthRoute from "./Components/ProtectedAuthRoute/ProtectedAuthRoute.jsx";
 import WishListContextProvider from "./Context/WishListContext.jsx";
 import Wish from "./Components/Wish/Wish.jsx";
+import Products from "./Components/Products/Products.jsx";
 
 const App = () => {
 
@@ -31,12 +32,13 @@ const App = () => {
         { path: "/wish", element: <ProtectedRoute><Wish /> </ProtectedRoute> },
         { path: "/payment", element: <ProtectedRoute><Payment /></ProtectedRoute> },
         { path: "/allorders", element: <ProtectedRoute><AllOrders /></ProtectedRoute> },
+        { path: "/products", element: <ProtectedRoute><Products /></ProtectedRoute> },
+        { path: "/product-details/:id", element: <ProtectedRoute><ProductDetails /></ProtectedRoute> },
         { path: "/login", element: <ProtectedAuthRoute><Login /></ProtectedAuthRoute> },
         { path: "/forgetPassword", element: <ProtectedAuthRoute><ForgetPassword /></ProtectedAuthRoute> },
         { path: "/ResetPassword", element: <ProtectedAuthRoute><ResetPassword /></ProtectedAuthRoute> },
         { path: "/newPassword", element: <ProtectedAuthRoute><NewPassword /></ProtectedAuthRoute> },
         { path: "/register", element: <ProtectedAuthRoute><Register /></ProtectedAuthRoute> },
-        { path: "/product-details/:id", element: <ProtectedRoute><ProductDetails /></ProtectedRoute> },
         { path: "*", element: <Error /> },
       ],
     },

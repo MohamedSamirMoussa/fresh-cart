@@ -90,7 +90,14 @@ const Nav = () => {
                                     <NavLink to={"/allorders"} className="block py-2 px-3 text-gray-600 rounded-sm hover:bg-gray-100 md:border-0 md:hover:text-[#000] transition-all duration-500 md:p-0">
                                         Orders
                                     </NavLink>
-                                </li></> : ""}
+                                </li>
+                                <li>
+                                    <NavLink to={"/products"} className="block py-2 px-3 text-gray-600 rounded-sm hover:bg-gray-100 md:border-0 md:hover:text-[#000] transition-all duration-500 md:p-0">
+                                        Products
+                                    </NavLink>
+                                </li>
+
+                            </> : ""}
                         </ul>
 
                         <div className="flex flex-wrap justify-center items-center flex-col md:flex-row md:justify-between md:space-x-3">

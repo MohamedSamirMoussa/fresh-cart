@@ -6,7 +6,6 @@ export const WishListContext = createContext();
 
 const WishListContextProvider = ({ children }) => {
     const [wishList, setWishList] = useState([])
-    // const [price, setPrice] = useState(0)
     const [wishListNum, setWishListNum] = useState(0)
     const { token } = useContext(AuthContext)
 
