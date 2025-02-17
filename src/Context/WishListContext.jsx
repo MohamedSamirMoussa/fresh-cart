@@ -79,7 +79,7 @@ const WishListContextProvider = ({ children }) => {
     }, [token])
 
     return (
-        <WishListContext.Provider value={{ wishList, addToWishListContext, wishListNum, removeFromWishListContext, getAllDataContext , setWishList }} >
+        <WishListContext.Provider value={{ wishList, addToWishListContext, wishListNum, removeFromWishListContext, getAllDataContext, setWishList }} >
             {children}
         </WishListContext.Provider>
     );

@@ -2,11 +2,9 @@ import { useContext, useState } from "react";
 import { WishListContext } from "../../Context/WishListContext";
 import toast from "react-hot-toast";
 import { Bars } from "react-loader-spinner";
-import { CartContext } from "../../Context/CartContext";
 
 const Wish = () => {
     const { removeFromWishListContext, wishList } = useContext(WishListContext);
-    const { loading } = useContext(CartContext);
     const [loader, setLoading] = useState(null);
 
     // Handle Remove Item
@@ -23,7 +21,7 @@ const Wish = () => {
         }
     };
 
-    if (loading) {
+    if (loader) {
         return <div className="h-screen flex justify-center items-center fixed top-0 start-0 end-0 bottom-0 bg-[#f0f3f2] z-50">
             <Bars
                 height="80"
@@ -51,9 +49,9 @@ const Wish = () => {
                             {wishList.map((items, index) => (
                                 <div key={index} className="card bg-white p-4 shadow-md rounded-lg">
                                     <figure>
-                                        <img src={items.imageCover} alt={items.title.split(' ').splice(0 , 2).join(' ')} className="w-full rounded-t-lg" />
+                                        <img src={items.imageCover} alt={items.title?.split(' ').splice(0 , 2).join(' ')} className="w-full rounded-t-lg" />
                                         <figcaption className="text-gray-500 mt-2">
-                                            {items.description.split(' ').splice(0 , 15).join(' ')}
+                                            {items.description?.split(' ').splice(0 , 15).join(' ')}
                                         </figcaption>
                                     </figure>
                                     <div className="txt mt-3">
@@ -71,7 +69,7 @@ const Wish = () => {
                                         <button
                                             onClick={() => handleRemove(items.id)}
                                             className="mt-3 w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-all disabled:opacity-50"
-                                            disabled={loading === items.id}
+                                            disabled={loader === items.id}
                                         >
                                             {loader === items.id ? (
                                                 <i className="fa-solid fa-spinner fa-spin"></i>
