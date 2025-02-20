@@ -3,7 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/flowbite/**/*.js",
+    './node_modules/flowbite/**/*.js',
   ],
   theme: {
     extend: {},
@@ -14,5 +14,5 @@ export default {
       xl: "1280px",
     },
   },
-  plugins: ["flowbite/plugin"],
+  plugins: [("flowbite/plugin")],
 };

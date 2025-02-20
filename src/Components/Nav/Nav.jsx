@@ -96,6 +96,11 @@ const Nav = () => {
                                         Products
                                     </NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to={"/category"} className="block py-2 px-3 text-gray-600 rounded-sm hover:bg-gray-100 md:border-0 md:hover:text-[#000] transition-all duration-500 md:p-0">
+                                        Category
+                                    </NavLink>
+                                </li>
 
                             </> : ""}
                         </ul>

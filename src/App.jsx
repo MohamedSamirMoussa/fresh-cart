@@ -20,6 +20,8 @@ import ProtectedAuthRoute from "./Components/ProtectedAuthRoute/ProtectedAuthRou
 import WishListContextProvider from "./Context/WishListContext.jsx";
 import Wish from "./Components/Wish/Wish.jsx";
 import Products from "./Components/Products/Products.jsx";
+import Categories from "./Components/Categories/Categories.jsx";
+import CategoryDetails from "./Components/CategoryDetails/CategoryDetails.jsx";
 
 const App = () => {
 
@@ -29,11 +31,13 @@ const App = () => {
       path: "", element: <Layout />, children: [
         { index: true, element: <ProtectedRoute><Home /></ProtectedRoute> },
         { path: "/cart", element: <ProtectedRoute><Cart /> </ProtectedRoute> },
+        { path: "/category", element: <ProtectedRoute><Categories /> </ProtectedRoute> },
         { path: "/wish", element: <ProtectedRoute><Wish /> </ProtectedRoute> },
         { path: "/payment", element: <ProtectedRoute><Payment /></ProtectedRoute> },
         { path: "/allorders", element: <ProtectedRoute><AllOrders /></ProtectedRoute> },
         { path: "/products", element: <ProtectedRoute><Products /></ProtectedRoute> },
         { path: "/product-details/:id", element: <ProtectedRoute><ProductDetails /></ProtectedRoute> },
+        { path: "/category-details/:id", element: <ProtectedRoute><CategoryDetails /></ProtectedRoute> },
         { path: "/login", element: <ProtectedAuthRoute><Login /></ProtectedAuthRoute> },
         { path: "/forgetPassword", element: <ProtectedAuthRoute><ForgetPassword /></ProtectedAuthRoute> },
         { path: "/ResetPassword", element: <ProtectedAuthRoute><ResetPassword /></ProtectedAuthRoute> },
