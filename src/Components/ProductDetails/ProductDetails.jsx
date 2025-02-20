@@ -5,15 +5,10 @@ import { Bars } from 'react-loader-spinner';
 import { CartContext } from '../../Context/CartContext';
 import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-
 const ProductDetails = () => {
-
     const { id } = useParams()
-
     const [loading, setLoading] = useState(false)
-
     const { addProductToCart } = useContext(CartContext)
-
     async function getData(id) {
         setLoading(true)
         const data = await addProductToCart(id)
@@ -27,14 +22,10 @@ const ProductDetails = () => {
         }
 
     }
-
     const getProductsDetails = async () => {
         return await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
     }
-
     const { data, isLoading } = useQuery(`product-detail${id}`, getProductsDetails)
-
-
     if (isLoading) {
         return <div className="h-screen flex justify-center items-center fixed top-0 start-0 end-0 bottom-0 bg-[#f0f3f2] z-50">
             <Bars
@@ -46,10 +37,8 @@ const ProductDetails = () => {
                 wrapperClass=""
                 visible={true}
             />
-
         </div>
     }
-
     return (
         <>
             <div className="md:w-[80%] mx-auto py-10 mt-10">
@@ -80,5 +69,4 @@ const ProductDetails = () => {
         </>
     )
 }
-
 export default ProductDetails

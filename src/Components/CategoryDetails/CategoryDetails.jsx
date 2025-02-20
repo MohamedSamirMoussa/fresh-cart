@@ -2,27 +2,13 @@ import axios from "axios"
 import { Bars } from "react-loader-spinner";
 import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom"
-
 const CategoryDetails = () => {
-
     const { id } = useParams()
-
     const handleCategoryDetails = async () => {
         return await axios.get(`https://ecommerce.routemisr.com/api/v1/categories/${id}`)
     }
-
     const { data, isLoading } = useQuery(`category-details${id}`, handleCategoryDetails)
-
-    console.log('====================================');
-
-    console.log('====================================');
-
     const x = data?.data.data
-
-    console.log('====================================');
-    console.log(x);
-    console.log('====================================');
-
     if (isLoading) {
         return <div className="h-screen flex justify-center items-center fixed top-0 start-0 end-0 bottom-0 bg-[#f0f3f2] z-50">
             <Bars
@@ -34,7 +20,6 @@ const CategoryDetails = () => {
                 wrapperClass=""
                 visible={true}
             />
-
         </div>
     }
     return (
@@ -56,5 +41,4 @@ const CategoryDetails = () => {
         </div>
     )
 }
-
 export default CategoryDetails

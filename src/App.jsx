@@ -22,9 +22,7 @@ import Wish from "./Components/Wish/Wish.jsx";
 import Products from "./Components/Products/Products.jsx";
 import Categories from "./Components/Categories/Categories.jsx";
 import CategoryDetails from "./Components/CategoryDetails/CategoryDetails.jsx";
-
 const App = () => {
-
   const client = new QueryClient
   const router = createHashRouter([
     {
@@ -48,12 +46,11 @@ const App = () => {
     },
   ]);
   return (
-
     <QueryClientProvider client={client}>
       <AuthContextProvider>
         <CartContextProvider>
           <WishListContextProvider>
-            <Toaster position="top-right" reverseOrder={false} />
+            <Toaster position="bottom-left" reverseOrder={false} />
             <RouterProvider router={router} />
           </WishListContextProvider>
         </CartContextProvider>

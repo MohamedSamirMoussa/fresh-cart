@@ -22,18 +22,19 @@ const Wish = () => {
     };
 
     if (loader) {
-        return <div className="h-screen flex justify-center items-center fixed top-0 start-0 end-0 bottom-0 bg-[#f0f3f2] z-50">
-            <Bars
-                height="80"
-                width="80"
-                color="#4fa94d"
-                ariaLabel="bars-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-            />
-
-        </div>
+        return (
+            <div className="h-screen flex justify-center items-center fixed top-0 start-0 end-0 bottom-0 bg-[#f0f3f2] z-50">
+                <Bars
+                    height="80"
+                    width="80"
+                    color="#4fa94d"
+                    ariaLabel="bars-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                />
+            </div>
+        );
     }
 
     return (
@@ -49,9 +50,13 @@ const Wish = () => {
                             {wishList.map((items, index) => (
                                 <div key={index} className="card bg-white p-4 shadow-md rounded-lg">
                                     <figure>
-                                        <img src={items.imageCover} alt={items.title?.split(' ').splice(0 , 2).join(' ')} className="w-full rounded-t-lg" />
+                                        <img
+                                            src={items.imageCover}
+                                            alt={items.title?.split(' ').splice(0, 2).join(' ')}
+                                            className="w-full rounded-t-lg"
+                                        />
                                         <figcaption className="text-gray-500 mt-2">
-                                            {items.description?.split(' ').splice(0 , 15).join(' ')}
+                                            {items.description?.split(' ').splice(0, 15).join(' ')}
                                         </figcaption>
                                     </figure>
                                     <div className="txt mt-3">

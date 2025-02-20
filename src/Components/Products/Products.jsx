@@ -103,7 +103,7 @@ const Products = () => {
         <div className="product py-10 ">
             <div className="container md:w-[80%] mx-auto py-10">
 
-                <div className="flex flex-wrap justify-center gap-4 items-center">
+                <div className="flex flex-wrap justify-center gap-4 items-center py-7">
                     <label htmlFor="sort"><i className="fa-solid fa-filter text-[#0aad0a] fa-xl"></i></label>
                     <select defaultValue={sort} className="py-4 border-2 px-12 rounded-md border-[#0aad0aa6]  focus:shadow-md focus:outline-[#0aad0a]" onChange={handleSort} id="sort">
                         <option value="-title">A - Z</option>
@@ -114,19 +114,19 @@ const Products = () => {
                     </select>
                 </div>
 
-                <div className="flex flex-wrap gap-3 p-3">
+                <div className="flex gap-4 flex-wrap">
 
                     {/* MAP */}
                     {subProduct.map(item => {
-                        return <div key={item.id} className=" md:w-1/5 rounded-lg shadow-lg mx-auto transition-all duration-[0.3s] hover:scale-[1.01] hover:translate-y-[-1%] hover:shadow-2xl p-2">
+                        return <div key={item.id} className=" md:w-[30%] lg:w-[22%] rounded-lg shadow-lg mx-auto transition-all duration-[0.3s] hover:scale-[1.01] hover:translate-y-[-1%] hover:shadow-2xl">
 
                             <Link to={`/product-details/${item.id}`}>
                                 <figure>
                                     <img src={item.imageCover} className="rounded-t-lg" alt="product image" />
                                 </figure>
                                 <div className="py-2 px-2">
-                                    <h5 className="text-1xl font-bold  tracking-tight text-[#0aad0a]">{item.title.split(' ', 2).join(' ')}</h5>
-                                    <span className="text-xs font-semibold">{item.description.split(' ', 10).join(' ')}</span>
+                                    <h5 className="text-1xl font-bold  tracking-tight text-[#0aad0a]">{item.title.split(' ', 5).join(' ')}</h5>
+                                    <span className="text-[12px]">{item.description.split(' ').splice(0 , 2).join(' ')}</span>
                                 </div>
                                 <div className="flex justify-between items-center py-1 px-3">
                                     <span className="text-gray-500">{item.price} EGP</span>
@@ -134,7 +134,7 @@ const Products = () => {
                                 </div>
                             </Link>
 
-                            <div className="my-2">
+                            <div className="p-3">
                                 <button onClick={() => getDataProduct(item.id)} className="w-2/3 font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer disabled:opacity-65" disabled={loading == item.id}>{loading == item.id ? <i className='fa-solid fa-spin fa-spinner fa-lg'></i> : "Add to cart"} </button>
                                 {loaderWishList == item.id ? <i className="fa-spin fa-spinner fa-solid text-center w-1/3 fa-lg text-red-700"></i> : <i onClick={() => handleWishList(item.id)} className={`fa-heart fa-${wishList.some(wishItem => wishItem.id === item.id) ? 'solid' : 'regular'} fa-lg text-red-700 w-1/3 text-center`}></i>}
 
