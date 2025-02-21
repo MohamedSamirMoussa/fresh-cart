@@ -64,7 +64,7 @@ import { WishListContext } from "../../Context/WishListContext";
 //                         </svg>
 //                     </button>
 //                     <div
-//                         className={touched ? "w-full lg:w-7/8 lg:flex lg:justify-between lg:items-center lg:mx-3 flex-grow-1" : "hidden w-full lg:w-4/6 lg:flex md:justify-between lg:items-center lg:mx-3 flex-grow-1"}
+//                         className={ ? "w-full lg:w-7/8 lg:flex lg:justify-between lg:items-center lg:mx-3 flex-grow-1" : "hidden w-full lg:w-4/6 lg:flex md:justify-between lg:items-center lg:mx-3 flex-grow-1"}
 //                         id="navbar-default"
 //                     >
 //                         <ul className=" lg:w-4/6 font-medium flex flex-col justify-items p-4 items-center lg:p-0 mt-4 border border-gray-100 rounded-lg lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0">
@@ -199,7 +199,7 @@ const Nav = () => {
                         </svg>
                     </button>
                 </div>
-                <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <div className={!touched ? "items-center justify-between hidden w-full md:flex md:w-auto md:order-1" : "items-center justify-between w-full md:flex md:w-auto md:order-1"} id="navbar-sticky">
                     <ul className="flex flex-col items-center p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
                         {token ? <><li>
                             <NavLink
