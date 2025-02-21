@@ -15,7 +15,6 @@ import Payment from "./Components/Payment/Payment.jsx";
 import AllOrders from "./Components/AllOrders/AllOrders.jsx";
 import ForgetPassword from "./Components/ForgetPassword/ForgetPassword.jsx";
 import ResetPassword from "./Components/ResetPassword/ResetPassword.jsx";
-
 import ProtectedAuthRoute from "./Components/ProtectedAuthRoute/ProtectedAuthRoute.jsx";
 import WishListContextProvider from "./Context/WishListContext.jsx";
 import Wish from "./Components/Wish/Wish.jsx";
@@ -23,8 +22,8 @@ import Products from "./Components/Products/Products.jsx";
 import Categories from "./Components/Categories/Categories.jsx";
 import CategoryDetails from "./Components/CategoryDetails/CategoryDetails.jsx";
 import Brands from "./Components/Brands/Brands.jsx";
-import BrandsDetails from "./Components/BrandsDetails/BrandsDetails.JSX";
 import NewPassword from "./Components/newPassword/NewPassword.jsx";
+import BrandsDetails from "./Components/BrandsDetails/BrandsDetails.jsx";
 const App = () => {
   const client = new QueryClient
   const router = createHashRouter([
