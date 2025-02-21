@@ -111,7 +111,7 @@ const Nav = () => {
                         </ul>
 
                         <div className="flex flex-wrap justify-center items-center flex-col lg:w-2/6 lg:flex-row lg:justify-between lg:space-x-2">
-                            <div className="flex justify-center flex-row items-center md:flex-row space-x-3 md:w-[25%]">
+                            <div className="flex justify-center flex-row items-center md:flex-row space-x-3 md:w-[20%]">
 
                                 <i className="fa-brands fa-instagram md:hover:text-[#0aad0a] transition-all duration-300"></i>
 
@@ -144,7 +144,7 @@ const Nav = () => {
 
 
                             </div>
-                            <div className="flex flex-col lg:flex-row items-center space-x-3 md:w-[65%]">
+                            <div className="flex flex-col lg:flex-row items-center space-x-3 md:w-[55%]">
                                 {!token ? <>
                                     <NavLink to={"/register"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Register</NavLink>
                                     <NavLink to={"/login"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Login</NavLink>
