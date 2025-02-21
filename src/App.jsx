@@ -22,7 +22,7 @@ import Products from "./Components/Products/Products.jsx";
 import Categories from "./Components/Categories/Categories.jsx";
 import CategoryDetails from "./Components/CategoryDetails/CategoryDetails.jsx";
 import Brands from "./Components/Brands/Brands.jsx";
-import NewPassword from "./Components/newPassword/NewPassword.jsx";
+import NewPassword from "./Components/NewPassword/NewPassword.jsx";
 import BrandsDetails from "./Components/BrandsDetails/BrandsDetails.jsx";
 const App = () => {
   const client = new QueryClient
