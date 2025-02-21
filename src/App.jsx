@@ -1,9 +1,9 @@
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import Layout from "./Components/Layout/Layout";
-import Login from "./Components/Login/Login";
-import Register from "./Components/Register/Register";
-import Home from "./Components/Home/Home";
-import Cart from "./Components/Cart/Cart";
+import Layout from "./Components/Layout/Layout.jsx";
+import Login from "./Components/Login/Login.jsx";
+import Register from "./Components/Register/Register.jsx";
+import Home from "./Components/Home/Home.jsx";
+import Cart from "./Components/Cart/Cart.jsx";
 import Error from "./Components/Error/Error.jsx";
 import { Toaster } from "react-hot-toast";
 import AuthContextProvider from "./Context/AuthContext.jsx";
