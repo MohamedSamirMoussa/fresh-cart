@@ -27,7 +27,7 @@ const Categories = () => {
             <div className="container py-10 w-[80%] mx-auto">
                 <div className="inner flex flex-wrap items-center gap-4 justify-center">
                     {data?.data.data.map((category, index) => {
-                        return <div key={index} className="card md:w-1/3 lg:w-1/4 border-1 border-gray-300 duration-300 hover:shadow-md hover:shadow-[#4fa74f] rounded-2xl">
+                        return <div key={index} className="card md:w-1/3 lg:w-1/4 border-1 border-gray-300 duration-300 hover:shadow-md hover:translate-y-[-1%] rounded-2xl">
                             <Link to={`/category-details/${category._id}`}>
                                 <div className="body">
                                     <figure>
