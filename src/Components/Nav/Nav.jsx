@@ -168,7 +168,7 @@ const Nav = () => {
             }>
                 <Link
                     to={"/"}
-                    className="flex items-center space-x-3 rtl:space-x-reverse md:w-1/8"
+                    className="flex items-center space-x-3 rtl:space-x-reverse"
                 >
                     <img src={logo} className="block w-full" alt="fresh-cart logo" />
                 </Link>
