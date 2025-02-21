@@ -73,7 +73,7 @@ const Nav = () => {
                         </svg>
                     </button>
                     <div
-                        className={touched ? "w-full lg:w-7/8 lg:flex lg:justify-between lg:items-center lg:mx-3 flex-grow-1" : "hidden w-full lg:w-1/8 lg:flex md:justify-between lg:items-center lg:mx-3 flex-grow-1"}
+                        className={touched ? "w-full lg:w-7/8 lg:flex lg:justify-between lg:items-center lg:mx-3 flex-grow-1" : "hidden w-full lg:w-4/6 lg:flex md:justify-between lg:items-center lg:mx-3 flex-grow-1"}
                         id="navbar-default"
                     >
                         <ul className=" lg:w-4/6 font-medium flex flex-col justify-items p-4 items-center lg:p-0 mt-4 border border-gray-100 rounded-lg lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0">
@@ -110,8 +110,8 @@ const Nav = () => {
                             </> : ""}
                         </ul>
 
-                        <div className="flex flex-wrap justify-center items-center flex-col lg:w-2/6 lg:flex-row lg:justify-between lg:space-x-3">
-                            <div className="md:w-3/6 flex justify-center flex-row items-center md:flex-row space-x-3">
+                        <div className="flex flex-wrap justify-center items-center flex-col lg:w-2/6 lg:flex-row lg:justify-between lg:space-x-2">
+                            <div className="flex justify-center flex-row items-center md:flex-row space-x-3 md:w-[25%]">
 
                                 <i className="fa-brands fa-instagram md:hover:text-[#0aad0a] transition-all duration-300"></i>
 
@@ -144,14 +144,16 @@ const Nav = () => {
 
 
                             </div>
-                            {!token ? <>
-                                <NavLink to={"/register"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Register</NavLink>
-                                <NavLink to={"/login"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Login</NavLink>
-                            </>
-                                :
-                                <button className="text-gray-600 cursor-pointer md:hover:text-[#000] transition-all duration-500 " onClick={logout}>
-                                    Log out
-                                </button>}
+                            <div className="flex flex-col lg:flex-row items-center space-x-3 md:w-[65%]">
+                                {!token ? <>
+                                    <NavLink to={"/register"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Register</NavLink>
+                                    <NavLink to={"/login"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Login</NavLink>
+                                </>
+                                    :
+                                    <button className="text-gray-600 cursor-pointer md:hover:text-[#000] transition-all duration-500 " onClick={logout}>
+                                        Log out
+                                    </button>}
+                            </div>
                         </div>
 
                     </div>
