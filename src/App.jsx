@@ -22,6 +22,8 @@ import Wish from "./Components/Wish/Wish.jsx";
 import Products from "./Components/Products/Products.jsx";
 import Categories from "./Components/Categories/Categories.jsx";
 import CategoryDetails from "./Components/CategoryDetails/CategoryDetails.jsx";
+import Brands from "./Components/Brands/Brands.jsx";
+import BrandsDetails from "./Components/BrandsDetails/BrandsDetails.JSX";
 const App = () => {
   const client = new QueryClient
   const router = createHashRouter([
@@ -30,11 +32,13 @@ const App = () => {
         { index: true, element: <ProtectedRoute><Home /></ProtectedRoute> },
         { path: "/cart", element: <ProtectedRoute><Cart /> </ProtectedRoute> },
         { path: "/category", element: <ProtectedRoute><Categories /> </ProtectedRoute> },
+        { path: "/brands", element: <ProtectedRoute><Brands /> </ProtectedRoute> },
         { path: "/wish", element: <ProtectedRoute><Wish /> </ProtectedRoute> },
         { path: "/payment", element: <ProtectedRoute><Payment /></ProtectedRoute> },
         { path: "/allorders", element: <ProtectedRoute><AllOrders /></ProtectedRoute> },
         { path: "/products", element: <ProtectedRoute><Products /></ProtectedRoute> },
         { path: "/product-details/:id", element: <ProtectedRoute><ProductDetails /></ProtectedRoute> },
+        { path: "/brand-details/:id", element: <ProtectedRoute><BrandsDetails /></ProtectedRoute> },
         { path: "/category-details/:id", element: <ProtectedRoute><CategoryDetails /></ProtectedRoute> },
         { path: "/login", element: <ProtectedAuthRoute><Login /></ProtectedAuthRoute> },
         { path: "/forgetPassword", element: <ProtectedAuthRoute><ForgetPassword /></ProtectedAuthRoute> },

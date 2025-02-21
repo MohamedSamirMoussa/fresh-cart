@@ -88,7 +88,7 @@ const Home = () => {
 
                 <div className="flex flex-wrap gap-3 p-3">
                     {data?.data.data.map((item, idx) => {
-                        return <div key={idx} className=" md:w-1/5 rounded-lg shadow-lg mx-auto transition-all duration-[0.3s] hover:scale-[1.01] hover:translate-y-[-1%] hover:shadow-2xl p-2">
+                        return <div key={idx} className=" md:w-[30%] lg:w-[20%] rounded-lg shadow-lg mx-auto transition-all duration-[0.3s] hover:scale-[1.01] hover:translate-y-[-1%] hover:shadow-2xl p-2">
                             <Link to={`/product-details/${item.id}`}>
                                 <figure>
                                     <img className="rounded-t-lg" src={item.imageCover} alt="product image" />

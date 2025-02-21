@@ -40,7 +40,7 @@ const Nav = () => {
     return (
         <>
             <nav className={nav ? "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 py-2 transition-all duration-500 z-40" : "bg-[#f0f3f2] shadow-xl border-gray-200 fixed top-0 end-0 start-0 transition-all duration-500 z-40"}>
-                <div className={nav ? " flex flex-wrap justify-between md:justify-center items-center mx-auto p-4 lg:w-[80%] transition-all duration-500" : "transition-all duration-500 flex flex-wrap justify-between items-center mx-auto p-4 lg:w-[90%]"}>
+                <div className={nav ? " flex flex-wrap justify-between lg:justify-center items-center mx-auto p-4 lg:w-[80%] transition-all duration-500" : "transition-all duration-500 flex flex-wrap justify-between items-center mx-auto p-4 lg:w-[90%]"}>
                     <Link
                         to={"/"}
                         className="flex items-center space-x-3 rtl:space-x-reverse md:w-1/8"
@@ -50,7 +50,7 @@ const Nav = () => {
                     <button
                         data-collapse-toggle="navbar-default"
                         type="button"
-                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#0aad0a] focus:ring-offset-2 focus:ring-offset-gray-50"
+                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#0aad0a] focus:ring-offset-2 focus:ring-offset-gray-50"
                         aria-controls="navbar-default"
                         aria-expanded="false"
                         onClick={touchBtn}
@@ -73,10 +73,10 @@ const Nav = () => {
                         </svg>
                     </button>
                     <div
-                        className={touched ? "w-full md:w-7/8 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1" : "hidden w-full md:w-4/6 md:flex md:justify-between md:items-center md:mx-3 flex-grow-1"}
+                        className={touched ? "w-full lg:w-7/8 lg:flex lg:justify-between lg:items-center lg:mx-3 flex-grow-1" : "hidden w-full lg:w-1/8 lg:flex md:justify-between lg:items-center lg:mx-3 flex-grow-1"}
                         id="navbar-default"
                     >
-                        <ul className=" md:w-3/6 font-medium flex flex-col justify-items p-4 items-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                        <ul className=" lg:w-4/6 font-medium flex flex-col justify-items p-4 items-center lg:p-0 mt-4 border border-gray-100 rounded-lg lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0">
                             {token ? <><li>
                                 <NavLink
                                     to={"/"} className="block py-2 px-3 text-gray-600 rounded-sm md:hover:text-[#000] transition-all duration-500 md:p-0"
@@ -101,11 +101,16 @@ const Nav = () => {
                                         Category
                                     </NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to={"/brands"} className="block py-2 px-3 text-gray-600 rounded-sm hover:bg-gray-100 md:border-0 md:hover:text-[#000] transition-all duration-500 md:p-0">
+                                        Brands
+                                    </NavLink>
+                                </li>
 
                             </> : ""}
                         </ul>
 
-                        <div className="flex flex-wrap justify-center items-center flex-col md:flex-row md:justify-between md:space-x-3">
+                        <div className="flex flex-wrap justify-center items-center flex-col lg:w-2/6 lg:flex-row lg:justify-between lg:space-x-3">
                             <div className="md:w-3/6 flex justify-center flex-row items-center md:flex-row space-x-3">
 
                                 <i className="fa-brands fa-instagram md:hover:text-[#0aad0a] transition-all duration-300"></i>
