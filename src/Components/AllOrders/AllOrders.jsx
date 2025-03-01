@@ -21,13 +21,13 @@ const AllOrders = () => {
   }
 
   return (
-    <div className="w-11/12 md:w-4/5 mx-auto mt-12 py-12">
+    <div className="mx-auto mt-12 py-12">
       <div className="bg-white shadow-lg rounded-3xl p-12">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-10 border-b-4 pb-4">Your Orders</h1>
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-10">Your Orders :</h1>
         {data?.data.map((order, idx) => (
           <div key={idx} className="border border-gray-300 rounded-2xl p-6 mb-10 shadow-md bg-gray-100">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="md:col-span-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="md:col-span-1">
                 <h2 className="text-2xl font-semibold text-gray-800">Order ID: {order.id}</h2>
                 <p className="text-xl text-green-700 font-bold">Total Price: ${order.totalOrderPrice}</p>
                 <p className="text-lg text-gray-700">Payment Method: {order.paymentMethodType}</p>
@@ -36,18 +36,18 @@ const AllOrders = () => {
                   Status: {order.isDelivered ? "Delivered" : "Processing"}
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                {order.cartItems?.map((item, index) => (
-                  <div key={index} className="p-4 text-center hover:shadow-xl hover:translate-y-[-1%] border rounded-xl shadow-md duration-300 transition-all bg-white">
-                    <img src={item.product.imageCover} alt={item.product.title} className="w-full h-32 object-cover rounded-lg" />
-                    <h3 className="text-md font-semibold mt-3 text-gray-900">{item.product.title}</h3>
-                    <p className="text-sm text-gray-700">Qty: {item.count}</p>
-                    <p className="text-sm text-gray-700">Price: ${item.price}</p>
-                  </div>
-                ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {order.cartItems?.map((item, index) => (
+                    <div key={index} className="p-4 text-center hover:shadow-xl hover:translate-y-[-1%] border rounded-xl shadow-md duration-300 transition-all bg-white">
+                      <img src={item.product.imageCover} alt={item.product.title} className="w-full h-32 object-cover rounded-lg" />
+                      <h3 className="text-md font-semibold mt-3 text-gray-900">{item.product.title}</h3>
+                      <p className="text-sm text-gray-700">Qty: {item.count}</p>
+                      <p className="text-sm text-gray-700">Price: ${item.price}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
         ))}
       </div>
     </div>

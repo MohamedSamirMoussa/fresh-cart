@@ -104,7 +104,7 @@ const Home = () => {
                             </Link>
                             <div className="flex flex-wrap justify-between items-center">
                                 <button onClick={() => getData(item.id)} className="w-2/3 font-bolder bg-[#0aad0a] rounded-xl text-white py-2 cursor-pointer disabled:opacity-65" disabled={loading == item.id}>{loading == item.id ? <i className='fa-solid fa-spin fa-spinner fa-lg'></i> : "Add to cart"} </button>
-                                {loaderWishList == item.id ? <i className="fa-spin fa-spinner fa-solid text-center w-1/3 fa-lg text-red-700"></i> : <i onClick={() => handleWishList(item.id)} className={`fa-heart fa-${wishList.some(wishItem => wishItem.id === item.id) ? 'solid' : 'regular'} fa-lg text-red-700 w-1/3 text-center`}></i>}
+                                {loaderWishList == item.id ? <i className="fa-spin fa-spinner fa-solid text-center w-1/3 fa-lg text-red-700"></i> : <i onClick={() => handleWishList(item.id)} className={`fa-heart cursor-pointer fa-${wishList.some(wishItem => wishItem.id === item.id) ? 'solid' : 'regular'} fa-lg text-red-700 w-1/3 text-center`}></i>}
                             </div>
                         </div>
                     })}
