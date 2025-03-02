@@ -65,8 +65,8 @@ const Nav = () => {
                         </> : ""
                     }
                     {!token ? <>
-                        <NavLink to={"/register"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Register</NavLink>
-                        <NavLink to={"/login"} className="text-gray-600 md:hover:text-[#000] transition-all duration-500">Login</NavLink>
+                        <NavLink to={"/register"} className="text-gray-600 mx-3 md:hover:text-[#000] transition-all duration-500">Register</NavLink>
+                        <NavLink to={"/login"} className="text-gray-600 mx-3 md:hover:text-[#000] transition-all duration-500">Login</NavLink>
                     </>
                         :
                         <button className="text-gray-600 mx-1.5 cursor-pointer md:hover:text-[#000] transition-all duration-500 " onClick={logout}>
