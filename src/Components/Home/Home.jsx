@@ -29,7 +29,6 @@ const Home = () => {
             if (data.status == 'success') {
                 toast.success(data.message)
                 setLoading(null)
-                console.log(data);
 
             }
         } catch (error) {
