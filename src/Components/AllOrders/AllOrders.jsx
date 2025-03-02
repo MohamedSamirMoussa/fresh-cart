@@ -36,18 +36,18 @@ const AllOrders = () => {
                   Status: {order.isDelivered ? "Delivered" : "Processing"}
                 </p>
               </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {order.cartItems?.map((item, index) => (
-                    <div key={index} className="p-4 text-center hover:shadow-xl hover:translate-y-[-1%] border rounded-xl shadow-md duration-300 transition-all bg-white">
-                      <img src={item.product.imageCover} alt={item.product.title} className="w-full h-32 object-cover rounded-lg" />
-                      <h3 className="text-md font-semibold mt-3 text-gray-900">{item.product.title}</h3>
-                      <p className="text-sm text-gray-700">Qty: {item.count}</p>
-                      <p className="text-sm text-gray-700">Price: ${item.price}</p>
-                    </div>
-                  ))}
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {order.cartItems?.map((item, index) => (
+                  <div key={index} className="p-4 text-center hover:shadow-xl hover:translate-y-[-1%] border rounded-xl shadow-md duration-300 transition-all bg-white">
+                    <img src={item.product.imageCover} alt={item.product.title} className="w-full h-32 object-cover rounded-lg" />
+                    <h3 className="text-md font-semibold mt-3 text-gray-900">{item.product.title}</h3>
+                    <p className="text-sm text-gray-700">Qty: {item.count}</p>
+                    <p className="text-sm text-gray-700">Price: ${item.price}</p>
+                  </div>
+                ))}
               </div>
             </div>
+          </div>
         ))}
       </div>
     </div>

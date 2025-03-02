@@ -16,8 +16,6 @@ const ForgetPassword = () => {
         setSubmitting(true)
         try {
             const { data } = await axios.post("https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords", values)
-
-            console.log(data);
             resetForm()
             toast.success(data.message)
         } catch (error) {

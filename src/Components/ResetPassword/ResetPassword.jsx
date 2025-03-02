@@ -24,7 +24,6 @@ const ResetPassword = () => {
             const { data } = await axios.post("https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode", x)
             resetForm()
             toast.success(data.status)
-            console.log(x.resetCode);
             sessionStorage.setItem("code", x.resetCode)
 
         } catch (error) {

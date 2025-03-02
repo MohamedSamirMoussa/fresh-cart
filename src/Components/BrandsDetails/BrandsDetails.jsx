@@ -19,9 +19,6 @@ const BrandsDetails = () => {
     const x = data?.data.data
 
 
-    console.log(x);
-
-
     if (isLoading) {
         return <div className="h-screen flex justify-center items-center fixed top-0 start-0 end-0 bottom-0 bg-[#f0f3f2] z-50">
             <Bars

@@ -12,7 +12,6 @@ const ProductDetails = () => {
     async function getData(id) {
         setLoading(true)
         const data = await addProductToCart(id)
-        console.log(data);
         if (data.status == 'success') {
             toast.success(data.message)
             setLoading(false)

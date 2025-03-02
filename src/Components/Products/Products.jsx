@@ -17,14 +17,14 @@ const Products = () => {
     const [currentItem, setCurrentItem] = useState({})
     const [page, setPage] = useState(1)
     const [sort, setSort] = useState('-ratingsAverage')
-    
+
 
     const handleGetAllProducts = async () => {
         try {
             setLoader(true)
-            const { data } = await axios.get('https://ecommerce.routemisr.com/api/v1/products' , {
-                params : {
-                    limit : 20 ,
+            const { data } = await axios.get('https://ecommerce.routemisr.com/api/v1/products', {
+                params: {
+                    limit: 20,
                     page,
                     sort
                 }
@@ -74,14 +74,18 @@ const Products = () => {
     };
 
 
-    const handleSort = (e)=>{
+    const handleSort = (e) => {
         setSort(e.target.value)
     }
-    
+
+    const handlePage = ({ selected }) => {
+        setPage(selected + 1)
+    }
+
 
     useEffect(() => {
         handleGetAllProducts()
-    }, [page , sort])
+    }, [page, sort])
 
     if (loader) {
         return <div className="h-screen flex justify-center items-center fixed top-0 start-0 end-0 bottom-0 bg-[#f0f3f2] z-50">
@@ -125,7 +129,7 @@ const Products = () => {
                                 </figure>
                                 <div className="py-2 px-2">
                                     <h5 className="text-1xl font-bold  tracking-tight text-[#0aad0a]">{item.title.split(' ', 5).join(' ')}</h5>
-                                    <span className="text-[12px]">{item.description.split(' ').splice(0 , 2).join(' ')}</span>
+                                    <span className="text-[12px]">{item.description.split(' ').splice(0, 2).join(' ')}</span>
                                 </div>
                                 <div className="flex justify-between items-center py-1 px-3">
                                     <span className="text-gray-500">{item.price} EGP</span>
@@ -152,8 +156,8 @@ const Products = () => {
                 nextLabel={<i className="fa-solid fa-angle-right"></i>}
                 className="flex flex-wrap justify-center gap-2 cursor-pointer"
                 activeClassName="text-green-700 border-2 border-gray-300  translate-y-[-10%] px-1 shadow-md"
-                pageCount={currentItem?.metadata?.numberOfPages}
-                onPageChange={()=>{setPage(page + 1 )}}
+                pageCount={currentItem?.metadata?.numberOfPages ? Math.ceil(currentItem.metadata.numberOfPages) : 1}
+                onPageChange={handlePage}
                 forcePage={page - 1}
 
             />
