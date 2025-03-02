@@ -1,5 +1,4 @@
 import axios from 'axios'
-import './Categories.css'
 import { useQuery } from 'react-query'
 import { Bars } from 'react-loader-spinner'
 import { Link } from 'react-router-dom'
