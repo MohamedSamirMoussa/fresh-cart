@@ -77,7 +77,7 @@ const Login = () => {
           </div> : ""}
           {/* input pass */}
           <label htmlFor="password">Password :</label>
-          <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} type="password" placeholder="Enter Your Email" id="password" name="password" className="focus:outline-[#0aad0a] bg-gray-50 border mb-[12px] border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
+          <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} type="password" placeholder="Enter Your Password" id="password" name="password" className="focus:outline-[#0aad0a] bg-gray-50 border mb-[12px] border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
           {formik.errors.password && formik.touched.password ? <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
             <span className="font-medium">Error!</span> {formik.errors.password}
           </div> : ""}

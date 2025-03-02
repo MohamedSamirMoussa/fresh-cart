@@ -16,7 +16,7 @@ const Products = () => {
     const [loader, setLoader] = useState(false)
     const [currentItem, setCurrentItem] = useState({})
     const [page, setPage] = useState(1)
-    const [sort, setSort] = useState('ratingsAverage')
+    const [sort, setSort] = useState('-ratingsAverage')
     console.log(currentItem , 'dasdaskjdhakj');
     
 
@@ -110,7 +110,7 @@ const Products = () => {
                         <option value="-price">High - Low</option>
                         <option value="-title">Z - A</option>
                         <option value="price">Low - High</option>
-                        <option value="ratingsAverage">Top Rated</option>
+                        <option value="-ratingsAverage">Top Rated</option>
                     </select>
                 </div>
 

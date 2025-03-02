@@ -75,7 +75,7 @@ const Register = () => {
             }
             {/* input pass */}
             <label htmlFor="password">Password :</label>
-            <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} type="password" placeholder="Enter Your Email" id="password" name="password" className="focus:outline-[#0aad0a] bg-gray-50 border mb-[12px] border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
+            <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} type="password" placeholder="Enter Your Password" id="password" name="password" className="focus:outline-[#0aad0a] bg-gray-50 border mb-[12px] border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
             {formik.errors.password && formik.touched.password ?
               <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
                 <span className="font-medium">Error!</span> {formik.errors.password}
@@ -85,7 +85,7 @@ const Register = () => {
             }
             {/* input rePass */}
             <label htmlFor="rePassword">Re-password :</label>
-            <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.rePassword} type="password" placeholder="Enter Your Pass" id="rePassword" name="rePassword" className="focus:outline-[#0aad0a] bg-gray-50 border mb-[12px] border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
+            <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.rePassword} type="password" placeholder="Enter Your Re-password" id="rePassword" name="rePassword" className="focus:outline-[#0aad0a] bg-gray-50 border mb-[12px] border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
             {formik.errors.rePassword && formik.touched.rePassword ?
               <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
                 <span className="font-medium">Error!</span> {formik.errors.rePassword}
@@ -95,7 +95,7 @@ const Register = () => {
             }
             {/* input phone */}
             <label htmlFor="phone">Phone :</label>
-            <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.phone} type="tel" placeholder="Enter Your Email" id="phone" name="phone" className="focus:outline-[#0aad0a] bg-gray-50 border mb-[12px] border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
+            <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.phone} type="tel" placeholder="Enter Your Phone" id="phone" name="phone" className="focus:outline-[#0aad0a] bg-gray-50 border mb-[12px] border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
             {formik.errors.phone && formik.touched.phone ?
               <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
                 <span className="font-medium">Error!</span> {formik.errors.phone}
