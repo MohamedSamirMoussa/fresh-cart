@@ -106,9 +106,9 @@ const Products = () => {
                 <div className="flex flex-wrap justify-center gap-4 items-center py-7">
                     <label htmlFor="sort"><i className="fa-solid fa-filter text-[#0aad0a] fa-xl"></i></label>
                     <select defaultValue={sort} className="py-4 border-2 px-12 rounded-md border-[#0aad0aa6]  focus:shadow-md focus:outline-[#0aad0a]" onChange={handleSort} id="sort">
-                        <option value="-title">A - Z</option>
+                        <option value="title">A - Z</option>
                         <option value="-price">High - Low</option>
-                        <option value="title">Z - A</option>
+                        <option value="-title">Z - A</option>
                         <option value="price">Low - High</option>
                         <option value="ratingsAverage">Top Rated</option>
                     </select>
@@ -152,7 +152,7 @@ const Products = () => {
                 previousLabel={<i className="fa-solid fa-angle-left"></i>}
                 nextLabel={<i className="fa-solid fa-angle-right"></i>}
                 className="flex flex-wrap justify-center gap-2 cursor-pointer"
-                activeClassName="text-green-700 border-2 border-gray-300 px-0.5 shadow-md"
+                activeClassName="text-green-700 border-2 border-gray-300  translate-y-[-10%] px-1 shadow-md"
                 pageCount={currentItem?.metadata?.numberOfPages}
                 onPageChange={()=>{setPage(page + 1 )}}
                 forcePage={page - 1}
