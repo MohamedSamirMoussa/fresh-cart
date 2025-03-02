@@ -17,7 +17,6 @@ const Products = () => {
     const [currentItem, setCurrentItem] = useState({})
     const [page, setPage] = useState(1)
     const [sort, setSort] = useState('-ratingsAverage')
-    console.log(currentItem , 'dasdaskjdhakj');
     
 
     const handleGetAllProducts = async () => {
