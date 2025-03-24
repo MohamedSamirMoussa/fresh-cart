@@ -60,7 +60,7 @@ const Payment = () => {
                         },
                         params: {
                             // My URL
-                            url: "https://mohamedsamirmoussa.github.io/fresh-cart/#"
+                            url: "https://fresh-cart-steel-pi.vercel.app/#"
                         }
                     }
                 )
